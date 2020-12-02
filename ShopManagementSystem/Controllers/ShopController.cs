@@ -35,5 +35,12 @@ namespace ShopManagementSystem.Controllers
 
             return View(shops);
         }
+        public ActionResult Detail([FromQuery]string id)
+        {
+             var shop=_shopService.Get(id);
+
+            return View(shop);
+
+        }
     }
 }
