@@ -6,22 +6,23 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ShopManagementSystem.Models
 {
-public class Person{
-[BsonId]
+    public class Person
+    {
+        [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-     public int Id { get; set; }
- [Required]
-[Display(Name = "First Name")]   
-        public String FirstName { get; set; }
-        
-    [Display(Name = "Middle Name")]
-        public String MiddleName{get;set;}
+        public string Id { get; set; }
         [Required]
-    [Display(Name = "Last Name")]
-        public String LastName { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Middle Name")]
+        public string MiddleName { get; set; }
         [Required]
-    [Display(Name = "Email Address")]
-        public String EmailAddress { get; set; }
-}
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        [Required]
+        [Display(Name = "Email Address")]
+        public string EmailAddress { get; set; }
+    }
 
 }

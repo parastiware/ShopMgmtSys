@@ -1,4 +1,28 @@
+@model Shop
 @{
-    ViewData["Title"] = "Registration";
+    ViewData["Title"]="Registration";
 }
-<h1>This is Registration Page</h1>
+<h3>Register New Shop</h3>
+<hr>
+<form   asp-controller="Shop" asp-action="Register" method="POST">
+  <div class="form-group">
+  <div class="form-group">
+    <label asp-for="Name"></label>
+    <textarea class="form-control" asp-for="Name"  placeholder="Enter Shop Name"></textarea>
+  </div>
+  <div class="form-group">
+    <label asp-for="Address"></label>
+    <textarea class="form-control" asp-for="Address"  placeholder="Enter Address"></textarea>
+  </div>
+  <div class="form-group">
+    <label asp-for="RegistrationNumber"></label>
+    <textarea class="form-control" asp-for="RegistrationNumber"  placeholder="Enter Registration Number"></textarea>
+  </div>
+  <div class="form-group">
+    <label asp-for="EmailAddress"></label>
+    <textarea class="form-control" asp-for="EmailAddress"  placeholder="Enter EmailAddress"></textarea>
+  </div>
+
+  
+  <button type="submit" class="btn btn-primary">Register Shop</button>
+</form>

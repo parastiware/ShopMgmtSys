@@ -1,19 +1,17 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 using ShopManagementSystem.Models;
+using ShopManagementSystem.Services;
+
 namespace ShopManagementSystem.Controllers
 {
-    class ShopController : Controller
+    public class ShopController : Controller
     {
-        private IMongoCollection<Shop> _shop;
+        private readonly ShopService _shopService;
 
-        public ShopController(IShopManagementSystemDatabaseSettings settings)
+        public ShopController(ShopService shopService)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
-
-            _shop = database.GetCollection<Shop>(settings.CollectionName);
+            _shopService = shopService;
         }
         public ActionResult Index()
         {
@@ -22,13 +20,20 @@ namespace ShopManagementSystem.Controllers
         }
         public ActionResult Register()
         {
-
             return View();
+        }
+       [HttpPost] 
+
+        public ActionResult<string> Register([FromForm]Shop shop)
+        {
+            _shopService.Create(shop);
+            return "Shop added Successfully";
         }
         public ActionResult List()
         {
+            var shops=_shopService.Get();
 
-            return View();
+            return View(shops);
         }
     }
 }
