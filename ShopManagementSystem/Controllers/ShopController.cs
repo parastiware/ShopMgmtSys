@@ -22,29 +22,29 @@ namespace ShopManagementSystem.Controllers
         {
             return View();
         }
+        
        [HttpPost] 
 
         public ActionResult<string> Register([FromForm]Shop shop)
         {
-             _shopService.Create(shop);
+            _shopService.Create(shop);
             return "Shop added Successfully";
+        }
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+         [HttpPost] 
+        public ActionResult LogIn(string Id,string password)
+        {
+            
+            _shopService.Get(Id);
         }
         public ActionResult List()
         {
             var shops=_shopService.Get();
 
             return View(shops);
-        }
-        public ActionResult Detail([FromQuery]string id)
-        {
-             var shop=_shopService.Get(id);
-
-            return View(shop);
-
-        }
-        public ActionResult Privacy()
-        {
-            return View();
         }
     }
 }
