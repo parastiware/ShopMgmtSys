@@ -26,6 +26,7 @@ namespace ShopManagementSystem.Models
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
         private byte[] Password {get; set;}
+        public byte[] Passwordvalue {get; set;}
         public void SetPassword(string password)
     {
         byte[] passvalues=Encoding.ASCII.GetBytes(password); 

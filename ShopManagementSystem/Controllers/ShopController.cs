@@ -26,7 +26,7 @@ namespace ShopManagementSystem.Controllers
 
         public ActionResult<string> Register([FromForm]Shop shop)
         {
-            _shopService.Create(shop);
+             _shopService.Create(shop);
             return "Shop added Successfully";
         }
         public ActionResult List()
@@ -41,6 +41,10 @@ namespace ShopManagementSystem.Controllers
 
             return View(shop);
 
+        }
+        public ActionResult Privacy()
+        {
+            return View();
         }
     }
 }
